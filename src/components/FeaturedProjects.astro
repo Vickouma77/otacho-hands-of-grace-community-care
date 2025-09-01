@@ -1,0 +1,123 @@
+---
+// Mock project data with proper typing
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  goal: number;
+  raised: number;
+  image: string;
+  percentage: number;
+}
+
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "New School Building",
+    description: "Help us build a modern classroom facility to accommodate more children and provide better learning environments.",
+    goal: 25000,
+    raised: 18750,
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    percentage: 0
+  },
+  {
+    id: 2,
+    title: "Medical Clinic Expansion",
+    description: "Expand our healthcare facilities to provide better medical care and nutrition programs for all children.",
+    goal: 15000,
+    raised: 8750,
+    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
+    percentage: 0
+  },
+  {
+    id: 3,
+    title: "Computer Lab Equipment",
+    description: "Equip our computer lab with modern technology to enhance digital literacy and learning opportunities.",
+    goal: 8000,
+    raised: 5200,
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    percentage: 0
+  }
+];
+
+// Calculate progress percentage for each project
+projects.forEach(project => {
+  project.percentage = Math.min((project.raised / project.goal) * 100, 100);
+});
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Support our ongoing initiatives and help us make a difference in children's lives
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <!-- Project Image -->
+          <div class="h-48 overflow-hidden">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          
+          <!-- Project Content -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <!-- Progress Section -->
+            <div class="mb-6">
+              <!-- Progress Bar -->
+              <div class="w-full bg-gray-200 rounded-full h-4 mb-3 border border-gray-300">
+                <div 
+                  class="bg-gradient-to-r from-gray-500 to-gray-600 h-4 rounded-full transition-all duration-700 ease-out shadow-sm"
+                  style={`width: ${project.percentage}%`}
+                ></div>
+              </div>
+              
+              <!-- Progress Text -->
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-600 font-medium">
+                  ${project.raised.toLocaleString()} of ${project.goal.toLocaleString()} raised
+                </span>
+                <span class="text-gray-600 font-bold text-lg">
+                  {Math.round(project.percentage)}%
+                </span>
+              </div>
+            </div>
+            
+            <!-- Donate Button -->
+            <a 
+              href="/donate" 
+              class="w-full bg-gradient-to-r from-gray-500 to-gray-400 text-white px-6 py-3 rounded-lg font-semibold text-center hover:from-gray-600 hover:to-gray-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              Donate Now
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- View All Projects Link -->
+    <div class="text-center mt-12">
+      <a 
+        href="/projects" 
+        class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold text-lg transition-colors duration-200"
+      >
+        View All Projects
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About Us - Otacho Christian Children Home">
+  <Header />
+  <main>
+    <!-- Page Header -->
+    <section class="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-10 animate-pulse-slow">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.15%22%3E%3Cpath%20d%3D%22M40%2010%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M40%2070%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M10%2040%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M70%2040%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+      </div>
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-slide-up">About Us</h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+          Discover our mission, vision, programs, and the transformative impact we're making in children's lives.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="bg-white p-8 rounded-3xl shadow-xl transform hover:scale-105 transition-all duration-300 animate-slide-up">
+            <div class="w-16 h-16 bg-gray-700 text-white rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+            <p class="text-gray-600 leading-relaxed">
+              To provide a safe, loving, and nurturing environment for vulnerable children, offering quality education, healthcare, and spiritual guidance to help them reach their full potential and become productive members of society.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl shadow-xl transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="w-16 h-16 bg-gray-700 text-white rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
+            <p class="text-gray-600 leading-relaxed">
+              A world where every child has access to love, education, and opportunities to thrive, regardless of their background or circumstances. We envision empowered children who become leaders and change-makers in their communities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12 animate-slide-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
+            <p class="text-xl text-gray-600">How it all began</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-3xl shadow-lg p-8 md:p-12 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p class="mb-6">
+                Otacho Christian Children Home was founded in 2012 with a powerful vision: to provide a safe haven for children who had nowhere else to turn. What began as a small initiative by a group of dedicated community members has grown into a comprehensive care facility serving over 150 children.
+              </p>
+              <p class="mb-6">
+                Our founder, inspired by Christian values of love and compassion, recognized the urgent need to address the challenges faced by orphaned and vulnerable children in the Otacho community. Through faith, determination, and community support, we've built not just a home, but a family where children can heal, learn, and grow.
+              </p>
+              <p>
+                Today, we continue to expand our programs and services, always guided by our core belief that every child deserves the chance to dream big and achieve their goals. Our success is measured in the smiles, achievements, and bright futures of the children we serve.
+              </p>
+            </div>
+            <div class="mt-8 text-center">
+              <a 
+                href="/about" 
+                class="inline-block bg-gray-200 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-300 transition-all duration-300 transform hover:scale-105"
+              >
+                Learn More About Our Impact
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Programs -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12 animate-slide-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
+          <p class="text-xl text-gray-600">Comprehensive programs nurturing every aspect of a child's development</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <!-- Education Program -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl transform hover:scale-105 transition-all duration-300 animate-slide-up">
+            <div class="bg-gray-700 text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Education & Learning</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              We provide quality education from primary to secondary level, ensuring every child has access to learning opportunities that will shape their future.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Primary & Secondary Education
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Computer Literacy Programs
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Library & Study Resources
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Tutoring & Academic Support
+              </li>
+            </ul>
+          </div>
+
+          <!-- Healthcare Program -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="bg-gray-700 text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Healthcare & Nutrition</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Comprehensive healthcare services and nutritional support to ensure the physical and mental well-being of every child in our care.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Regular Health Checkups
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Nutritious Daily Meals
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Mental Health Support
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Medical Emergency Care
+              </li>
+            </ul>
+          </div>
+
+          <!-- Life Skills Program -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl transform hover:scale-105 transition-all duration-300 animate-slide-up">
+            <div class="bg-gray-700 text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Life Skills & Vocational Training</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Practical life skills and vocational training programs that prepare our children for independent living and successful careers.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Vocational Training Programs
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Life Skills Development
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Career Guidance & Counseling
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Job Placement Assistance
+              </li>
+            </ul>
+          </div>
+
+          <!-- Spiritual Development -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="bg-gray-700 text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Spiritual Development</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Nurturing the spiritual growth of our children through Christian values, prayer, and community worship activities.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Daily Devotions & Prayer
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Sunday School & Bible Study
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Character Development
+              </li>
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-gray-700 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Community Service Projects
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Additional Programs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+          <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 transform hover:scale-105 transition-all duration-300 animate-slide-up">
+            <div class="bg-gray-700 text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z"/>
+              </svg>
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Sports & Recreation</h4>
+            <p class="text-gray-600 text-sm">Physical activities and sports programs for healthy development</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.1s;">
+            <div class="bg-gray-700 text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Arts & Crafts</h4>
+            <p class="text-gray-600 text-sm">Creative expression through art, music, and cultural activities</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="bg-gray-700 text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 mb-2">Counseling Support</h4>
+            <p class="text-gray-600 text-sm">Professional counseling and emotional support services</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12 animate-slide-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
+          <p class="text-xl text-gray-600">Dedicated individuals making a difference</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center bg-white rounded-3xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 animate-slide-up">
+            <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Director</h3>
+            <p class="text-gray-600 mb-2">Executive Leadership</p>
+            <p class="text-sm text-gray-500">Overseeing operations and strategic planning</p>
+          </div>
+          
+          <div class="text-center bg-white rounded-3xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.1s;">
+            <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Care Coordinators</h3>
+            <p class="text-gray-600 mb-2">Child Welfare</p>
+            <p class="text-sm text-gray-500">Ensuring daily care and emotional support</p>
+          </div>
+          
+          <div class="text-center bg-white rounded-3xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Educators</h3>
+            <p class="text-gray-600 mb-2">Academic Excellence</p>
+            <p class="text-sm text-gray-500">Providing quality education and mentorship</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom CSS for Animations -->
+    <style>
+      .animate-pulse-slow {
+        animation: pulse 8s ease-in-out infinite;
+      }
+      .animate-slide-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.8s ease-out forwards;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.15; }
+      }
+      @keyframes slideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </main>
+  <Footer />
+</Layout>

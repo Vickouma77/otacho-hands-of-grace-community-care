@@ -1,0 +1,81 @@
+---
+// Blog preview data - shows only 2 most recent posts for homepage
+const recentPosts = [
+  {
+    title: "Welcome to Our Blog",
+    description: "This is where we'll share stories about our journey, the children we serve, and the impact we're making in our community.",
+    date: "January 1, 2024",
+    author: "Otacho Team",
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    title: "Our Vision for 2024",
+    description: "As we step into 2024, we're excited to share our ambitious plans to expand our impact and reach more children in need.",
+    date: "January 15, 2024",
+    author: "Sarah Johnson",
+    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800"
+  }
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Stories</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Read about our journey, the children we serve, and the impact we're making in our community
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      {recentPosts.map((post) => (
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <!-- Post Image -->
+          <div class="h-48 overflow-hidden">
+            <img 
+              src={post.image} 
+              alt={post.title}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          
+          <!-- Post Content -->
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-gray-500 text-sm">
+                {post.date}
+              </span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-gray-900 mb-3 leading-tight">
+              {post.title}
+            </h3>
+            
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              {post.description}
+            </p>
+            
+            <a 
+              href="/blog"
+              class="text-primary-600 hover:text-primary-700 font-semibold text-sm hover:underline transition-colors duration-200"
+            >
+              Read more →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a 
+        href="/blog" 
+        class="inline-flex items-center bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200"
+      >
+        View All Stories
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

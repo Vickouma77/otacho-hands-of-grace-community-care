@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// All blog posts data - you can move this to a separate data file later
+const allPosts = [
+  {
+    slug: "welcome-to-our-blog",
+    title: "Welcome to Our Blog",
+    description: "This is where we'll share stories about our journey, the children we serve, and the impact we're making in our community.",
+    date: "January 1, 2024",
+    author: "Otacho Team",
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    featured: true
+  },
+  {
+    slug: "our-vision-for-2024",
+    title: "Our Vision for 2024",
+    description: "As we step into 2024, we're excited to share our ambitious plans to expand our impact and reach more children in need.",
+    date: "January 15, 2024",
+    author: "Sarah Johnson",
+    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
+    featured: false
+  },
+  {
+    slug: "meeting-maria-story",
+    title: "Maria's Journey: From Shy Child to Confident Leader",
+    description: "Meet Maria, a 12-year-old girl whose transformation over the past year has inspired everyone at Otacho Christian Children Home.",
+    date: "January 10, 2024",
+    author: "David Mwangi",
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    featured: false
+  },
+  {
+    slug: "challenges-we-face",
+    title: "The Challenges We Face: Honest Reflections on Our Journey",
+    description: "While we celebrate our successes, it's important to be transparent about the challenges we face and how we're working to overcome them.",
+    date: "January 5, 2024",
+    author: "Rebecca Atieno",
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    featured: false
+  }
+];
+
+// Sort posts by date (newest first)
+allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+---
+
+<Layout title="Blog - Otacho Christian Children Home">
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-600 to-primary-700 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Blog</h1>
+        <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+          Stories of hope, transformation, and community impact from Otacho Christian Children Home
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <!-- Featured Post (if any) -->
+        {allPosts.filter(post => post.featured).length > 0 && (
+          <div class="mb-16">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Featured Story</h2>
+            {allPosts.filter(post => post.featured).map((post) => (
+              <div class="bg-gradient-to-r from-gray-50 to-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                  <!-- Featured Image -->
+                  <div class="h-64 lg:h-full overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  
+                  <!-- Featured Content -->
+                  <div class="p-8 lg:p-12 flex flex-col justify-center">
+                    <div class="flex items-center gap-4 mb-4">
+                      <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        Featured
+                      </span>
+                      <span class="text-gray-500 text-sm">
+                        {post.date}
+                      </span>
+                    </div>
+                    
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                      {post.title}
+                    </h3>
+                    
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                      {post.description}
+                    </p>
+                    
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-500 text-sm">
+                        By {post.author}
+                      </span>
+                      <a 
+                        href={`/blog/${post.slug}`}
+                        class="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200"
+                      >
+                        Read Full Story
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <!-- All Posts Grid -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">All Stories</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {allPosts.map((post) => (
+              <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <!-- Post Image -->
+                <div class="h-48 overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                <!-- Post Content -->
+                <div class="p-6">
+                  <!-- Meta Information -->
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="text-gray-500 text-sm">
+                      {post.date}
+                    </span>
+                    {post.featured && (
+                      <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+                  
+                  <!-- Title -->
+                  <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                    {post.title}
+                  </h3>
+                  
+                  <!-- Description -->
+                  <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                    {post.description}
+                  </p>
+                  
+                  <!-- Author and Read More -->
+                  <div class="flex items-center justify-between">
+                    <span class="text-gray-500 text-sm">
+                      By {post.author}
+                    </span>
+                    <a 
+                      href={`/blog/${post.slug}`}
+                      class="text-primary-600 hover:text-primary-700 font-semibold text-sm hover:underline transition-colors duration-200"
+                    >
+                      Read more →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h3>
+          <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Subscribe to our newsletter to receive the latest stories, updates, and ways to get involved with our community.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <input 
+              type="email" 
+              placeholder="Enter your email address"
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+            <button class="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/children-hero.jpg'; // Placeholder for local image, adjust path as needed
+---
+
+<section class="relative bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 text-white py-24 overflow-hidden">
+  <!-- Background Pattern with Subtle Animation -->
+  <div class="absolute inset-0 opacity-10 animate-pulse-slow">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.15%22%3E%3Cpath%20d%3D%22M40%2010%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M40%2070%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M10%2040%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M70%2040%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="text-center lg:text-left space-y-8 animate-slide-up">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+          Empowering <span class="text-gray-200 drop-shadow-md">Bright Futures</span> for Children
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          At Otacho Christian Children Home, we nurture vulnerable children with love, education, and hope, paving the way for a brighter tomorrow.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a 
+            href="/contact" 
+            class="relative bg-gray-200 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-300 transition-all duration-300 shadow-lg transform hover:scale-105 group"
+          >
+            Get Involved
+            <span class="absolute inset-0 rounded-full bg-gray-100 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+          </a>
+          <a 
+            href="/about" 
+            class="border-2 border-gray-200 text-gray-200 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Image with Parallax Effect -->
+      <div class="relative animate-slide-up" style="animation-delay: 0.2s;">
+        <div class="relative z-10 transform hover:scale-105 transition-transform duration-500">
+          <Image 
+            src={heroImage} 
+            alt="Children at Otacho Christian Children Home" 
+            class="rounded-3xl shadow-2xl w-full h-[28rem] object-cover"
+            loading="eager"
+          />
+        </div>
+        <!-- Decorative Elements with Animation -->
+        <div class="absolute -top-6 -right-6 w-32 h-32 bg-gray-400 rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white rounded-full opacity-20 animate-pulse" style="animation-delay: 0.5s;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom CSS for Animations -->
+  <style>
+    .animate-pulse-slow {
+      animation: pulse 8s ease-in-out infinite;
+    }
+    .animate-slide-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.15; }
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</section>

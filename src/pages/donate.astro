@@ -1,0 +1,251 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Mock project data for donation selection
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  goal?: number;
+  raised?: number;
+  image: string;
+  percentage?: number;
+  status: 'completed' | 'in_progress' | 'planned';
+}
+
+const projects: Project[] = [
+  {
+    id: 2,
+    title: "Community Health Outreach",
+    description: "Extending healthcare services to the Otacho community through mobile clinics and health education programs.",
+    goal: 15000,
+    raised: 8750,
+    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
+    percentage: 0,
+    status: "in_progress"
+  },
+  {
+    id: 3,
+    title: "Vocational Training Center",
+    description: "Establishing a dedicated center to equip older children with vocational skills for sustainable careers.",
+    goal: 8000,
+    raised: 5200,
+    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    percentage: 0,
+    status: "in_progress"
+  }
+];
+
+// Calculate progress percentage for in-progress projects
+projects.forEach(project => {
+  if (project.status === 'in_progress' && project.goal && project.raised) {
+    project.percentage = Math.min((project.raised / project.goal) * 100, 100);
+  }
+});
+---
+
+<Layout title="Donate - Otacho Christian Children Home">
+  <Header />
+  <main>
+    <!-- Page Header -->
+    <section class="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-10 animate-pulse-slow">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.15%22%3E%3Cpath%20d%3D%22M40%2010%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M40%2070%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M10%2040%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%20M70%2040%20a%203%203%200%200%201%200%206%20a%203%203%200%200%201%200%20-6%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+      </div>
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-slide-up">Support Our Mission</h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+          Your generosity helps us provide a safe, loving, and nurturing environment for vulnerable children. Choose a project or donate to our general fund.
+        </p>
+      </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-2xl mx-auto">
+          <div class="text-center mb-12 animate-slide-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Make a Donation</h2>
+            <p class="text-xl text-gray-600">
+              Select a project or contribute to our general fund to support our ongoing initiatives.
+            </p>
+          </div>
+          <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 animate-slide-up" style="animation-delay: 0.2s;">
+            <form class="space-y-6">
+              <!-- Project Selection -->
+              <div>
+                <label for="project" class="block text-gray-700 font-semibold mb-2">Select a Project</label>
+                <select 
+                  id="project" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-200"
+                >
+                  <option value="">General Fund</option>
+                  {projects.map(project => (
+                    <option value={project.id}>{project.title}</option>
+                  ))}
+                </select>
+              </div>
+              <!-- Donation Amount Options -->
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Select Donation Amount</label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105">$25</button>
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105">$50</button>
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105">$100</button>
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105">$200</button>
+                </div>
+              </div>
+              <!-- Custom Amount -->
+              <div>
+                <label for="custom-amount" class="block text-gray-700 font-semibold mb-2">Or Enter Custom Amount</label>
+                <input 
+                  type="number" 
+                  id="custom-amount" 
+                  placeholder="$ Enter amount" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-200"
+                />
+              </div>
+              <!-- Donor Information -->
+              <div>
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  placeholder="Your Name" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-200"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  placeholder="Your Email" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-200"
+                />
+              </div>
+              <!-- Payment Method -->
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Select Payment Method</label>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.5 4H3.5C2.12 4 1 5.12 1 6.5v11c0 1.38 1.12 2.5 2.5 2.5h17c1.38 0 2.5-1.12 2.5-2.5v-11C23 5.12 21.88 4 20.5 4zM9.5 15.5H3.5v-2h6v2zm0-4H3.5v-2h6v2zm10 4h-6v-2h6v2zm0-4h-6v-2h6v2z"/>
+                    </svg>
+                    PayPal
+                  </button>
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3.5 4A2.5 2.5 0 001 6.5v11A2.5 2.5 0 003.5 20h17a2.5 2.5 0 002.5-2.5v-11A2.5 2.5 0 0020.5 4h-17zm2 13.5v-2h6v2h-6zm0-4v-2h6v2h-6zm8 4v-2h6v2h-6zm0-4v-2h6v2h-6z"/>
+                    </svg>
+                    Credit Card
+                  </button>
+                  <button type="button" class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200 transform hover:scale-105 flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21 4H3a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2zm-6 12H9v-2h6v2zm0-4H9v-2h6v2z"/>
+                    </svg>
+                    Bank Transfer
+                  </button>
+                </div>
+              </div>
+              <!-- Submit Button -->
+              <button 
+                type="submit" 
+                class="w-full bg-gradient-to-r from-gray-200 to-gray-300 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:from-gray-300 hover:to-gray-400 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >
+                Donate Now
+              </button>
+            </form>
+            <p class="text-sm text-gray-500 mt-4 text-center">
+              Note: This is a placeholder form. Please integrate with payment gateways (e.g., PayPal, Stripe) or provide bank details for actual donations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12 animate-slide-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Your Donation Helps</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Your contributions directly support our programs and projects, creating lasting change for the children we serve.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-3xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 animate-slide-up">
+            <div class="w-16 h-16 bg-gray-700 text-white rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Education</h3>
+            <p class="text-gray-600 text-sm">Funds school supplies, teacher salaries, and classroom infrastructure.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.1s;">
+            <div class="w-16 h-16 bg-gray-700 text-white rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Healthcare</h3>
+            <p class="text-gray-600 text-sm">Supports medical checkups, nutrition programs, and emergency care.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+            <div class="w-16 h-16 bg-gray-700 text-white rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Community</h3>
+            <p class="text-gray-600 text-sm">Empowers vocational training and community outreach initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto animate-slide-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Join Our Mission</h2>
+          <p class="text-xl text-gray-600 mb-8">
+            Your support transforms lives. Help us continue our work by donating today.
+          </p>
+          <a 
+            href="/projects" 
+            class="inline-block bg-gradient-to-r from-gray-200 to-gray-300 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:from-gray-300 hover:to-gray-400 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          >
+            Explore Our Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom CSS for Animations -->
+    <style>
+      .animate-pulse-slow {
+        animation: pulse 8s ease-in-out infinite;
+      }
+      .animate-slide-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.8s ease-out forwards;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.15; }
+      }
+      @keyframes slideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </main>
+  <Footer />
+</Layout>
