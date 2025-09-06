@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Our Blog"
 description: "This is where we'll share stories about our journey, the children we serve, and the impact we're making in our community."
-publishDate: 2024-01-01
+publishDate: 2025-09-05
 image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"
 author: "Otacho Team"
 tags: ["welcome", "community", "introduction"]

@@ -1,11 +1,11 @@
 ---
 title: "Our Vision for 2024: Building Brighter Futures Together"
 description: "As we step into 2024, we're excited to share our ambitious plans to expand our impact and reach more children in need across our community."
-publishDate: 2024-01-15
+publishDate: 2025-09-05
 image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"
 author: "Sarah Johnson"
 tags: ["vision", "2024", "community", "growth"]
-featured: true
+featured: false
 ---
 
 # Our Vision for 2024: Building Brighter Futures Together

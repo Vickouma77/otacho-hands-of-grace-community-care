@@ -2,49 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
 
-// All blog posts data - you can move this to a separate data file later
-const allPosts = [
-  {
-    slug: "welcome-to-our-blog",
-    title: "Welcome to Our Blog",
-    description: "This is where we'll share stories about our journey, the children we serve, and the impact we're making in our community.",
-    date: "January 1, 2024",
-    author: "Otacho Team",
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: true
-  },
-  {
-    slug: "our-vision-for-2024",
-    title: "Our Vision for 2024",
-    description: "As we step into 2024, we're excited to share our ambitious plans to expand our impact and reach more children in need.",
-    date: "January 15, 2024",
-    author: "Sarah Johnson",
-    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false
-  },
-  {
-    slug: "meeting-maria-story",
-    title: "Maria's Journey: From Shy Child to Confident Leader",
-    description: "Meet Maria, a 12-year-old girl whose transformation over the past year has inspired everyone at Otacho Christian Children Home.",
-    date: "January 10, 2024",
-    author: "David Mwangi",
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false
-  },
-  {
-    slug: "challenges-we-face",
-    title: "The Challenges We Face: Honest Reflections on Our Journey",
-    description: "While we celebrate our successes, it's important to be transparent about the challenges we face and how we're working to overcome them.",
-    date: "January 5, 2024",
-    author: "Rebecca Atieno",
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
-    featured: false
-  }
-];
+// Get all blog posts from the content collection
+const allPosts = await getCollection('blog');
 
 // Sort posts by date (newest first)
-allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+allPosts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
 ---
 
 <Layout title="Blog - Otacho Christian Children Home">
@@ -54,17 +18,17 @@ allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <!-- Featured Post (if any) -->
-        {allPosts.filter(post => post.featured).length > 0 && (
+        {allPosts.filter(post => post.data.featured).length > 0 && (
           <div class="mb-16">
             <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Featured Story</h2>
-            {allPosts.filter(post => post.featured).map((post) => (
+            {allPosts.filter(post => post.data.featured).map((post) => (
               <div class="bg-gradient-to-r from-gray-50 to-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <!-- Featured Image -->
                   <div class="h-64 lg:h-full overflow-hidden">
                     <img 
-                      src={post.image} 
-                      alt={post.title}
+                      src={post.data.image || "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"} 
+                      alt={post.data.title}
                       class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -76,21 +40,21 @@ allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                         Featured
                       </span>
                       <span class="text-gray-500 text-sm">
-                        {post.date}
+                        {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </span>
                     </div>
                     
                     <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
-                      {post.title}
+                      {post.data.title}
                     </h3>
                     
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                      {post.description}
+                      {post.data.description}
                     </p>
                     
                     <div class="flex items-center justify-between">
                       <span class="text-gray-500 text-sm">
-                        By {post.author}
+                        By {post.data.author}
                       </span>
                       <a 
                         href={`/blog/${post.slug}`}
@@ -116,8 +80,8 @@ allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                 <!-- Post Image -->
                 <div class="h-48 overflow-hidden">
                   <img 
-                    src={post.image} 
-                    alt={post.title}
+                    src={post.data.image || "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"} 
+                    alt={post.data.title}
                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -127,9 +91,9 @@ allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                   <!-- Meta Information -->
                   <div class="flex items-center gap-3 mb-4">
                     <span class="text-gray-500 text-sm">
-                      {post.date}
+                      {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </span>
-                    {post.featured && (
+                    {post.data.featured && (
                       <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-semibold">
                         Featured
                       </span>
@@ -138,18 +102,18 @@ allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                   
                   <!-- Title -->
                   <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
-                    {post.title}
+                    {post.data.title}
                   </h3>
                   
                   <!-- Description -->
                   <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">
-                    {post.description}
+                    {post.data.description}
                   </p>
                   
                   <!-- Author and Read More -->
                   <div class="flex items-center justify-between">
                     <span class="text-gray-500 text-sm">
-                      By {post.author}
+                      By {post.data.author}
                     </span>
                     <a 
                       href={`/blog/${post.slug}`}
