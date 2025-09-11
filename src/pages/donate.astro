@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import backgroundImage from '../assets/children-hero.jpg';
+import { Image } from 'astro:assets';
+import backgroundImage from '../assets/img/about-5.jpg';
+import healthImage from '../assets/img/about-1.jpg';
+import vocationalImage from '../assets/img/courses-1.jpg';
 
 const paypalClientId = import.meta.env.PAYPAL_CLIENT_ID || 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R';
 
@@ -25,7 +28,7 @@ const projects: Project[] = [
     description: "Extending healthcare services to the Otacho community through mobile clinics and health education programs.",
     goal: 15000,
     raised: 8750,
-    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: healthImage.src,
     percentage: 0,
     status: "in_progress"
   },
@@ -35,7 +38,7 @@ const projects: Project[] = [
     description: "Establishing a dedicated center to equip older children with vocational skills for sustainable careers.",
     goal: 8000,
     raised: 6200,
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: vocationalImage.src,
     percentage: 0,
     status: "in_progress"
   }
@@ -53,12 +56,14 @@ projects.forEach(project => {
   <Header />
   <main>
     <!-- Page Header -->
-    <section class="relative bg-black/50 text-white py-24 overflow-hidden">
-      <div 
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-        style={`background-image: url(${backgroundImage.src});`}
-        aria-hidden="true"
-      ></div>
+    <section class="relative bg-black/40 text-white py-24 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <img 
+          src={backgroundImage.src} 
+          alt="Donate to Otacho Hands of Grace Community Care" 
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-slide-up font-sans">Donate</h1>
         <p class="text-lg sm:text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">

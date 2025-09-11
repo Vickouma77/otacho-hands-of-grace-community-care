@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import establishedImage from '../assets/img/gallery1.jpg';
+---
+
 <section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -66,12 +71,12 @@
 
       <!-- Image -->
       <div class="relative">
-        <img 
-          src="https://images.pexels.com/photos/8613092/pexels-photo-8613092.jpeg?auto=compress&cs=tinysrgb&w=800" 
+        <Image 
+          src={establishedImage}
           alt="Children learning at Otacho" 
           class="rounded-2xl shadow-lg w-full h-96 object-cover"
         />
-        <div class="absolute -bottom-6 -right-6 bg-primary-600 text-gray-600 p-4 rounded-xl shadow-lg">
+        <div class="absolute -bottom-6 -right-6 bg-primary-400 text-gray-200 p-4 rounded-xl shadow-lg">
           <p class="text-sm font-semibold">Established</p>
           <p class="text-2xl font-bold">2003</p>
         </div>

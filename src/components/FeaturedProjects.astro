@@ -1,5 +1,8 @@
 ---
-// Mock project data with proper typing
+import { Image } from "astro:assets";
+import sponsorshipImage from '../assets/img/courses-1.jpg';
+import clinicImage from '../assets/img/about-1.jpg';
+import computerImage from '../assets/img/courses-2.jpg';
 interface Project {
   id: number;
   title: string;
@@ -17,7 +20,7 @@ const projects: Project[] = [
     description: "Help us build a modern classroom facility to accommodate more children and provide better learning environments.",
     goal: 25000,
     raised: 18750,
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: sponsorshipImage.src,
     percentage: 0
   },
   {
@@ -26,7 +29,7 @@ const projects: Project[] = [
     description: "Expand our healthcare facilities to provide better medical care and nutrition programs for all children.",
     goal: 15000,
     raised: 8750,
-    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: clinicImage.src,
     percentage: 0
   },
   {
@@ -35,7 +38,7 @@ const projects: Project[] = [
     description: "Equip our computer lab with modern technology to enhance digital literacy and learning opportunities.",
     goal: 8000,
     raised: 5200,
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: computerImage.src,
     percentage: 0
   }
 ];

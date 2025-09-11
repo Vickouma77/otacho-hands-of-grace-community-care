@@ -2,37 +2,80 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import gallery1 from '../assets/img/gallery1.jpg';
+import gallery2 from '../assets/img/gallery2.jpg';
+import gallery3 from '../assets/img/gallery3.jpg';
+import gallery4 from '../assets/img/gallery4.jpg';
+import gallery5 from '../assets/img/gallery5.jpg';
+import gallery6 from '../assets/img/gallery6.jpg';
+import gallery7 from '../assets/img/gallery7.jpg';
+import gallery8 from '../assets/img/gallery8.jpg';
+import gallery9 from '../assets/img/gallery9.jpg';
+import gallery10 from '../assets/img/gallery10.jpg';
+import gallery11 from '../assets/img/gallery11.jpg';
+import gallery12 from '../assets/img/gallery12.jpg';
 
 const galleryImages = [
   {
-    src: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    src: gallery1.src,
     alt: "Children playing together",
     category: "Daily Life"
   },
   {
-    src: "https://images.pexels.com/photos/8613092/pexels-photo-8613092.jpeg?auto=compress&cs=tinysrgb&w=800",
+    src: gallery2.src,
     alt: "Children in classroom",
     category: "Education"
   },
   {
-    src: "https://images.pexels.com/photos/8613095/pexels-photo-8613095.jpeg?auto=compress&cs=tinysrgb&w=800",
+    src: gallery3.src,
     alt: "Mealtime at the home",
     category: "Daily Life"
   },
   {
-    src: "https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800",
+    src: gallery4.src,
     alt: "Children studying",
     category: "Education"
   },
   {
-    src: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800",
+    src: gallery5.src,
     alt: "Outdoor activities",
     category: "Recreation"
   },
   {
-    src: "https://images.pexels.com/photos/5212665/pexels-photo-5212665.jpeg?auto=compress&cs=tinysrgb&w=800",
+    src: gallery6.src,
     alt: "Group activities",
     category: "Recreation"
+  },
+  {
+    src: gallery7.src,
+    alt: "Community events",
+    category: "Community"
+  },
+  {
+    src: gallery8.src,
+    alt: "Learning activities",
+    category: "Education"
+  },
+  {
+    src: gallery9.src,
+    alt: "Children at play",
+    category: "Recreation"
+  },
+  {
+    src: gallery10.src,
+    alt: "School activities",
+    category: "Education"
+  },
+  {
+    src: gallery11.src,
+    alt: "Community gatherings",
+    category: "Community"
+  },
+  {
+    src: gallery12.src,
+    alt: "Daily life moments",
+    category: "Daily Life"
   }
 ];
 ---

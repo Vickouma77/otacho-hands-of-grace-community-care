@@ -2,7 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
 import backgroundImage from '../assets/children-hero.jpg';
+import waterImage from '../assets/img/icons8-water-64.png';
+import environmentImage from '../assets/img/about-2.jpg';
+import educationImage from '../assets/img/courses-3.jpg';
+import vocationalImage from '../assets/img/courses-1.jpg';
+import protectionImage from '../assets/img/gallery1.jpg';
+import sponsorshipImage from '../assets/img/home1.jpg';
 
 // Mock project data with proper typing
 interface Project {
@@ -21,7 +28,7 @@ const projects: Project[] = [
     id: 1,
     title: "Clean Water Access Initiative",
     description: "Drilling boreholes and installing water purification systems to provide sustainable clean water access to over 500 households in Migori communities.",
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: waterImage.src,
     status: "completed"
   },
   {
@@ -30,7 +37,7 @@ const projects: Project[] = [
     description: "Large-scale tree planting and reforestation initiatives covering 50 hectares of degraded land to combat climate change and restore biodiversity.",
     goal: 25000,
     raised: 18750,
-    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: environmentImage.src,
     percentage: 0,
     status: "in_progress"
   },
@@ -40,7 +47,7 @@ const projects: Project[] = [
     description: "Comprehensive education support program providing scholarships, mentorship, and life skills training to 200 girls in secondary school.",
     goal: 15000,
     raised: 11200,
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: educationImage.src,
     percentage: 0,
     status: "in_progress"
   },
@@ -50,7 +57,7 @@ const projects: Project[] = [
     description: "Establishing a modern vocational training facility offering courses in carpentry, tailoring, ICT, and entrepreneurship for youth employment.",
     goal: 35000,
     raised: 21000,
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: vocationalImage.src,
     percentage: 0,
     status: "in_progress"
   },
@@ -58,7 +65,7 @@ const projects: Project[] = [
     id: 5,
     title: "Child Protection & Welfare Network",
     description: "Creating a comprehensive child protection system with community-based child protection committees and emergency response mechanisms.",
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: protectionImage.src,
     status: "planned"
   },
   {
@@ -67,7 +74,7 @@ const projects: Project[] = [
     description: "Scaling up our orphan sponsorship program to support 300 additional children with education, healthcare, and nutritional needs.",
     goal: 45000,
     raised: 18000,
-    image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: sponsorshipImage.src,
     percentage: 0,
     status: "in_progress"
   }
